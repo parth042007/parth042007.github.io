@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parth Pandey | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EDF1F5;
+  --surface: #F8FAFC;
+  --ink: #101A2E;
+  --muted: #56627A;
+  --line: #CBD3DF;
+  --accent: #2B45F5;
+  --accent-ink: #FFFFFF;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1424; --surface: #151C30; --ink: #E8ECF5; --muted: #9AA6BD;
+    --line: #26304A; --accent: #8FA2FF; --accent-ink: #0E1424;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1424; --surface: #151C30; --ink: #E8ECF5; --muted: #9AA6BD;
+  --line: #26304A; --accent: #8FA2FF; --accent-ink: #0E1424;
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* top bar */
+.bar { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+.bar nav { display: flex; gap: 1.5rem; }
+.bar a { text-decoration: none; font-weight: 500; color: var(--muted); }
+.bar a:hover { color: var(--ink); }
+.bar .mark { font-family: var(--display); font-weight: 800; color: var(--ink); font-size: 1.25rem; }
+.theme-btn {
+  background: none; border: 1px solid var(--line); color: var(--ink);
+  border-radius: 999px; padding: .35rem .9rem; font: inherit; font-size: .9rem; cursor: pointer;
+}
+.theme-btn:hover { border-color: var(--accent); }
+
+/* hero */
+.hero { padding: clamp(3rem, 10vw, 7rem) 0 clamp(3rem, 8vw, 5.5rem); }
+.hero h1 {
+  font-family: var(--display); font-weight: 800; letter-spacing: -0.035em;
+  font-size: clamp(3.2rem, 14vw, 9rem); line-height: .92; margin: 0 0 1.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.hero h1 span.name { display: block; }
+.hero p.lede { max-width: 34rem; font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.45; margin: 0 0 2rem; color: var(--ink); }
+.cta { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600;
+  padding: .8rem 1.4rem; border-radius: 999px; border: 2px solid var(--accent);
+}
+.btn.solid { background: var(--accent); color: var(--accent-ink); }
+.btn.solid:hover { filter: brightness(1.1); }
+.btn.line { color: var(--accent); }
+.btn.line:hover { background: var(--accent); color: var(--accent-ink); }
+
+/* sections */
+section { padding: clamp(2.5rem, 7vw, 4.5rem) 0; border-top: 1px solid var(--line); }
+h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.05; margin: 0 0 1.5rem; }
+
+/* about */
+.about { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+.about p { max-width: 38rem; margin: 0 0 1rem; }
+.facts { margin: 0; padding: 0; list-style: none; border-left: 3px solid var(--accent); padding-left: 1.25rem; }
+.facts li { padding: .4rem 0; }
+.facts b { display: block; font-weight: 600; }
+.facts span { color: var(--muted); font-size: .95rem; }
+@media (min-width: 52rem) { .about { grid-template-columns: 1.4fr 1fr; gap: 4rem; } }
+
+/* profile rows */
+.rows { border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: 1fr; gap: .25rem 2rem; align-items: baseline;
+  padding: 1.5rem .5rem; border-bottom: 1px solid var(--line); text-decoration: none;
+  transition: background .15s, padding .15s;
+}
+.row:hover { background: var(--surface); padding-left: 1.25rem; }
+.row .platform { font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 5vw, 2.6rem); letter-spacing: -0.02em; line-height: 1.1; }
+.row .desc { color: var(--muted); max-width: 28rem; }
+.row .handle { font-weight: 600; color: var(--accent); overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 52rem) { .row { grid-template-columns: 1.1fr 1.4fr auto; } .row .handle { text-align: right; } }
+
+footer { padding: 2.5rem 0 3.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .row { transition: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top" id="top">PP</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#profiles">Profiles</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1 aria-label="Parth Pandey"><span class="name" id="first" aria-hidden="true">Parth</span><span class="name" id="last" aria-hidden="true">Pandey</span></h1>
+      <p class="lede">First-year Computer Science student at VIT. I write Python and Java, edit videos, and learn how systems get broken so I can build ones that hold up.</p>
+      <div class="cta">
+        <a class="btn solid" href="#profiles">See my profiles</a>
+        <a class="btn line" href="https://github.com/parth042007" target="_blank" rel="noopener noreferrer">Open my GitHub</a>
+      </div>
+    </div>
+
+    <section id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About me</h2>
+      <div class="about">
+        <div>
+          <p>I'm Parth, a B.Tech CSE student at Vellore Institute of Technology. I came to computer science through curiosity about how things work underneath, and that curiosity keeps pulling me toward security.</p>
+          <p>I practise on <a href="https://tryhackme.com/p/PARTH" target="_blank" rel="noopener noreferrer">TryHackMe</a>, keep my code on <a href="https://github.com/parth042007" target="_blank" rel="noopener noreferrer">GitHub</a>, and use Python and Java for most of what I build. Outside of code, I edit videos, which taught me to care about detail and pacing.</p>
+          <p>I'm looking for projects, teams and people to learn from. You can also find me on <a href="https://www.linkedin.com/in/parth-pandey-619043221/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        </div>
+        <ul class="facts">
+          <li><b>Studying</b><span>B.Tech CSE, Vellore Institute of Technology</span></li>
+          <li><b>Languages</b><span>Python, Java</span></li>
+          <li><b>Practising</b><span>Cybersecurity on TryHackMe</span></li>
+          <li><b>Also into</b><span>Video editing</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="profiles" aria-labelledby="profiles-h">
+      <h2 id="profiles-h">Find me online</h2>
+      <div class="rows" id="rows"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>© <span id="yr"></span> Parth Pandey</div>
+  </footer>
+</div>
+
+<script>
+/* ===== EDIT THIS PART ===== */
+var ME = {
+  github: "parth042007",
+  tryhackme: "PARTH",
+  linkedin: "parth-pandey-619043221"
+};
+
+/* ===== END EDIT ===== */
+
+var PROFILES = [
+  { name: "GitHub", url: "https://github.com/" + ME.github, handle: "@" + ME.github,
+    desc: "Projects, code and what I'm building." },
+  { name: "TryHackMe", url: "https://tryhackme.com/p/" + ME.tryhackme, handle: "@" + ME.tryhackme,
+    desc: "Rooms, learning paths and badges from my security practice." },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/" + ME.linkedin, handle: "in/" + ME.linkedin,
+    desc: "Education, experience and ways to get in touch." }
+];
+
+/* profile rows */
+var rows = document.getElementById("rows");
+PROFILES.forEach(function (p) {
+  var a = document.createElement("a");
+  a.className = "row"; a.href = p.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+  var n = document.createElement("span"); n.className = "platform"; n.textContent = p.name;
+  var d = document.createElement("span"); d.className = "desc"; d.textContent = p.desc;
+  var h = document.createElement("span"); h.className = "handle"; h.textContent = p.handle;
+  a.appendChild(n); a.appendChild(d); a.appendChild(h);
+  rows.appendChild(a);
+});
+
+/* hero: name decrypts once on load */
+(function () {
+  var targets = [["first", "Parth"], ["last", "Pandey"]];
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var pool = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*";
+  var start = null, total = 1300;
+  function frame(ts) {
+    if (start === null) start = ts;
+    var p = Math.min((ts - start) / total, 1);
+    targets.forEach(function (pair, idx) {
+      var el = document.getElementById(pair[0]), word = pair[1], out = "";
+      var reveal = Math.floor(p * (word.length + 2) - idx * 0.6);
+      for (var i = 0; i < word.length; i++) {
+        out += i < reveal ? word[i] : pool[Math.floor(Math.random() * pool.length)];
+      }
+      el.textContent = p >= 1 ? word : out;
+    });
+    if (p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* theme toggle (session only; storage is guarded) */
+(function () {
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
